@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
 
@@ -11,6 +10,34 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   @override
   Widget build(BuildContext context) {
+    List quiz = [
+      {
+        "pergunta": "Quem descobriu o Brasil?",
+        "respostas": [
+          "Dom Pedro I",
+          "Pedro Álvares Cabral",
+          "Tiradentes",
+          "Dom Pedro II",
+        ],
+        "alternativa_correta": 2,
+      }
+    ];
+
+    quiz.add({
+      "pergunta": "O Flutter é...",
+      "respostas": [
+        "Uma linguagem",
+        "Um aplicativo",
+        "Um SDK",
+        "Uma IDE",
+      ],
+      "alternativa_correta": 3,
+    });
+    print('Dados do quiz:');
+    print(quiz);
+
+    int perguntaNumero = 2;
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -31,75 +58,89 @@ class _QuizState extends State<Quiz> {
               Align(
                   alignment: Alignment.topRight,
                   child: Text(
-                    'Pergunta 1 de 10',
+                    'Pergunta $perguntaNumero de 10',
                     style: TextStyle(fontSize: 20),
                   )),
               Text(
-                'Pergunta',
+                'Pergunta:\n\n' +
+                quiz[perguntaNumero - 1]['pergunta'],
                 style: TextStyle(fontSize: 20),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  print('object 1');
-                },
-                child: Text(
-                  'Resposta 1',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+              
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    print('object 1');
+                  },
+                  child: Text(
+                    quiz[perguntaNumero -1]['respostas'][0],
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                  backgroundColor: Colors.blue,
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
+                    backgroundColor: Colors.blue,
+                  ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  print('object 2');
-                },
-                child: Text(
-                  'Resposta 2',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    print('object 2');
+                  },
+                  child: Text(
+                    quiz[perguntaNumero -1]['respostas'][1],
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                  backgroundColor: Colors.blue,
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
+                    backgroundColor: Colors.blue,
+                  ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  print('object 3');
-                },
-                child: Text(
-                  'Resposta 3',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    print('object 3');
+                  },
+                  child: Text(
+                    quiz[perguntaNumero -1]['respostas'][2],
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                  backgroundColor: Colors.blue,
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
+                    backgroundColor: Colors.blue,
+                  ),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  print('object 4');
-                },
-                child: Text(
-                  'Resposta 4',
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.white,
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () {
+                    print('object 4');
+                  },
+                  child: Text(
+                    quiz[perguntaNumero -1]['respostas'][3],
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                    ),
                   ),
-                ),
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                  backgroundColor: Colors.blue,
+                  style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
+                    backgroundColor: Colors.blue,
+                  ),
                 ),
               )
             ],
