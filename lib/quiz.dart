@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz/resultado.dart';
+import 'quiz_dados.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -14,20 +15,7 @@ class _QuizState extends State<Quiz> {
   int erros = 0;
   @override
   Widget build(BuildContext context) {
-    List quiz = [
-      {
-        "pergunta": "Quem descobriu o Brasil?",
-        "respostas": [
-          "Dom Pedro I",
-          "Pedro Álvares Cabral",
-          "Tiradentes",
-          "Dom Pedro II",
-        ],
-        "alternativa_correta": 2,
-      }
-    ];
-
-    quiz.add({
+    /* quiz.add({
       "pergunta": "O Flutter é...",
       "respostas": [
         "Uma linguagem",
@@ -124,11 +112,7 @@ class _QuizState extends State<Quiz> {
         "Respposta 4",
       ],
       "alternativa_correta": 2,
-    });
-
-    print('Dados do quiz:');
-    //print(quiz);
-    
+    }); */
 
     void respondeu(int respostaNumero) {
       setState(() {
@@ -195,9 +179,9 @@ class _QuizState extends State<Quiz> {
                   ),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    backgroundColor: Colors.blue,                      
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-
+                    backgroundColor: Colors.blue,
+                    shape:
+                        RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                   ),
                 ),
               ),
@@ -217,9 +201,9 @@ class _QuizState extends State<Quiz> {
                   ),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    backgroundColor: Colors.blue, 
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-
+                    backgroundColor: Colors.blue,
+                    shape:
+                        RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                   ),
                 ),
               ),
@@ -239,9 +223,9 @@ class _QuizState extends State<Quiz> {
                   ),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    backgroundColor: Colors.blue,                      
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-
+                    backgroundColor: Colors.blue,
+                    shape:
+                        RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                   ),
                 ),
               ),
@@ -261,9 +245,9 @@ class _QuizState extends State<Quiz> {
                   ),
                   style: ElevatedButton.styleFrom(
                     padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
-                    backgroundColor: Colors.blue,                     
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-
+                    backgroundColor: Colors.blue,
+                    shape:
+                        RoundedRectangleBorder(borderRadius: BorderRadius.zero),
                   ),
                 ),
               )
