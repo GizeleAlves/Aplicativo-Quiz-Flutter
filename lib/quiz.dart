@@ -13,8 +13,27 @@ class _QuizState extends State<Quiz> {
   int perguntaNumero = 1;
   int acertos = 0;
   int erros = 0;
+
   @override
   Widget build(BuildContext context) {
+    quiz.shuffle();
+
+    quiz.forEach((elemento) {
+
+      int alternativaCorreta = elemento['alternativa_correta'];
+      List respostas = elemento['respostas'];
+      String respostaCorreta = elemento['respostas'][alternativaCorreta - 1];
+      respostas.shuffle();
+
+      int i = 1;
+      respostas.forEach((elemento) {
+        if (elemento == respostaCorreta) {
+          alternativaCorreta = i;
+        }
+        i++;
+      });
+      elemento['alternativa_correta'] = alternativaCorreta;
+    });
     /* quiz.add({
       "pergunta": "O Flutter é...",
       "respostas": [
