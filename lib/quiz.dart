@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz/resultado.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -8,6 +9,9 @@ class Quiz extends StatefulWidget {
 }
 
 class _QuizState extends State<Quiz> {
+  int perguntaNumero = 1;
+  int acertos = 0;
+  int erros = 0;
   @override
   Widget build(BuildContext context) {
     List quiz = [
@@ -33,10 +37,120 @@ class _QuizState extends State<Quiz> {
       ],
       "alternativa_correta": 3,
     });
-    print('Dados do quiz:');
-    print(quiz);
 
-    int perguntaNumero = 2;
+    quiz.add({
+      "pergunta": "3",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 1,
+    });
+
+    quiz.add({
+      "pergunta": "4",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 4,
+    });
+
+    quiz.add({
+      "pergunta": "5",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 1,
+    });
+
+    quiz.add({
+      "pergunta": "6",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 2,
+    });
+
+    quiz.add({
+      "pergunta": "7",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 3,
+    });
+
+    quiz.add({
+      "pergunta": "8",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 4,
+    });
+
+    quiz.add({
+      "pergunta": "9",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 1,
+    });
+
+    quiz.add({
+      "pergunta": "10",
+      "respostas": [
+        "Respposta 1",
+        "Respposta 2",
+        "Respposta 3",
+        "Respposta 4",
+      ],
+      "alternativa_correta": 2,
+    });
+
+    print('Dados do quiz:');
+    //print(quiz);
+    
+
+    void respondeu(int respostaNumero) {
+      setState(() {
+        if (quiz[perguntaNumero - 1]['alternativa_correta'] == respostaNumero) {
+          print('acertou!');
+          acertos++;
+        } else {
+          print('errou!');
+          erros++;
+        }
+
+        print('Acertos totais: $acertos. Erros totais: $erros');
+
+        if (perguntaNumero == 10) {
+          print('Terminou o quiz!');
+          Navigator.pushNamed(context, 'Resultado',
+              arguments: Argumentos(acertos));
+        } else {
+          perguntaNumero++;
+        }
+      });
+    }
 
     return MaterialApp(
       home: Scaffold(
@@ -62,27 +176,28 @@ class _QuizState extends State<Quiz> {
                     style: TextStyle(fontSize: 20),
                   )),
               Text(
-                'Pergunta:\n\n' +
-                quiz[perguntaNumero - 1]['pergunta'],
+                'Pergunta:\n\n' + quiz[perguntaNumero - 1]['pergunta'],
                 style: TextStyle(fontSize: 20),
               ),
-              
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
                     print('object 1');
+                    respondeu(1);
                   },
                   child: Text(
-                    quiz[perguntaNumero -1]['respostas'][0],
+                    quiz[perguntaNumero - 1]['respostas'][0],
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                    backgroundColor: Colors.blue,
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    backgroundColor: Colors.blue,                      
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+
                   ),
                 ),
               ),
@@ -91,17 +206,20 @@ class _QuizState extends State<Quiz> {
                 child: ElevatedButton(
                   onPressed: () {
                     print('object 2');
+                    respondeu(2);
                   },
                   child: Text(
-                    quiz[perguntaNumero -1]['respostas'][1],
+                    quiz[perguntaNumero - 1]['respostas'][1],
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                    backgroundColor: Colors.blue,
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    backgroundColor: Colors.blue, 
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+
                   ),
                 ),
               ),
@@ -110,17 +228,20 @@ class _QuizState extends State<Quiz> {
                 child: ElevatedButton(
                   onPressed: () {
                     print('object 3');
+                    respondeu(3);
                   },
                   child: Text(
-                    quiz[perguntaNumero -1]['respostas'][2],
+                    quiz[perguntaNumero - 1]['respostas'][2],
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                    backgroundColor: Colors.blue,
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    backgroundColor: Colors.blue,                      
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+
                   ),
                 ),
               ),
@@ -129,17 +250,20 @@ class _QuizState extends State<Quiz> {
                 child: ElevatedButton(
                   onPressed: () {
                     print('object 4');
+                    respondeu(4);
                   },
                   child: Text(
-                    quiz[perguntaNumero -1]['respostas'][3],
+                    quiz[perguntaNumero - 1]['respostas'][3],
                     style: TextStyle(
                       fontSize: 20,
                       color: Colors.white,
                     ),
                   ),
                   style: ElevatedButton.styleFrom(
-                    padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                    backgroundColor: Colors.blue,
+                    padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
+                    backgroundColor: Colors.blue,                     
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+
                   ),
                 ),
               )

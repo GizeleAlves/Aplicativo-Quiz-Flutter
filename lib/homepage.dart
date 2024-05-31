@@ -6,7 +6,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // theme: ThemeData(primaryColor: Colors.blue, brightness: Brightness.dark), 
+      // theme: ThemeData(primaryColor: Colors.blue, brightness: Brightness.dark),
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
@@ -24,15 +24,17 @@ class HomePage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       print('Pressionado');
+                      Navigator.pushNamed(context, 'Quiz');
                     },
                     child: Text(
                       'Jogar',
                       style: TextStyle(fontSize: 50, color: Colors.white),
                     ),
                     style: ElevatedButton.styleFrom(
-                        padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
-                        backgroundColor: Colors.blue,
-                        ),
+                      padding: EdgeInsets.fromLTRB(100, 20, 100, 20),
+                      backgroundColor: Colors.blue,
+                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                    ),
                   ),
                 ),
               ],
